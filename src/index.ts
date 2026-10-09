@@ -191,3 +191,40 @@ if (mensajePrueba !== null ){
 console.log ("Proyectos:", [proyectoWeb, proyectoApp]);
 console.log("Alumnos", alumnos);
 // ---------------------------- Fin activ 3-------------
+
+// ACITIVDAD 4
+
+// ACTIVIDAD 4: Funciones sobre objetos 
+
+// 1. Función flecha esCaro
+const esCaro = (producto: Producto): boolean => {
+    return producto.precio > 50000;
+};
+
+// 2. Función que recibe un Producto y devuelve un elemento HTML 
+function crearTarjetaProducto(producto: Producto): HTMLElement {
+    const tarjeta = document.createElement("div");
+    
+    // Si esCaro es true, agregamos la clase caro para destacarlo
+    const claseCaro = esCaro(producto) ? "caro" : "";
+    tarjeta.className = `tarjeta-producto ${claseCaro}`.trim();
+
+    const stockTexto = producto.stock > 0 
+        ? `<span class="stock-tag">Stock: ${producto.stock} u.</span>` 
+        : `<span class="stock-tag agotado">Agotado</span>`;
+
+    const etiquetaCaro = esCaro(producto) 
+        ? `<span style="background: #ffebee; color: #c62828; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; margin-left: 5px;">¡Destacado / Caro!</span>` 
+        : "";
+
+    tarjeta.innerHTML = `
+        <h3>${producto.nombre} ${etiquetaCaro}</h3>
+        <span class="categoria-tag">${producto.categoria}</span>
+        <div class="precio-tag">$${producto.precio.toFixed(2)}</div>
+        ${stockTexto}
+    `;
+
+    return tarjeta;
+}
+
+console.log("Tarjeta creada para el producto 1:", crearTarjetaProducto(productos[0]));
