@@ -147,3 +147,47 @@ if (filtroStock) filtroStock.addEventListener('change', renderizarProductos);
 
 // Inicializar la vista
 renderizarProductos();
+
+
+// ACTIVIDAD 3 RELACIONAR DATOS
+interface Proyecto {
+    id: number;
+    nombre: string;
+    tecnologias: string[];
+}
+
+interface Alumno {
+    id: number;
+    nombre: string;
+    email?: string;
+    proyecto: Proyecto | null;
+}
+// Crear 2 proyectos
+const proyectoWeb: Proyecto = {id: 1, nombre: "E-Commerce TypeScript", tecnologias: ["HTML", "CSS", "TS"]};
+const proyectoApp: Proyecto = { id: 2, nombre: "App Mobile Registro", tecnologias: ["React Native", "TS"]}
+
+// Crear 4 alumnos
+const alumnos: Alumno[] = [
+    {id: 1, nombre: "Santiago", email: "santiago@email.com", proyecto:proyectoWeb},
+    {id: 2, nombre: "María", proyecto: proyectoApp},
+    {id: 3, nombre: "Lucas", email: "lucas@email.com", proyecto: null},
+    { id: 4, nombre: "Sofia", proyecto: null }
+];
+
+if (mensajePrueba !== null ){
+    let listadoAlumnos = "<strong>Alumnos y Proyectos:</strong><br>";
+
+    alumnos.forEach(alumno =>{
+        const tieneProyecto = alumno.proyecto !== null
+        ? `Tiene proyecto: "${alumno.proyecto.nombre}"` 
+        : "Sin proyecto asignado";
+
+        listadoAlumnos += `- ${alumno.nombre}: ${tieneProyecto}<br>`;
+    });
+    mensajePrueba.innerHTML = listadoAlumnos;   
+}
+
+//comprobacion por consola
+console.log ("Proyectos:", [proyectoWeb, proyectoApp]);
+console.log("Alumnos", alumnos);
+// ---------------------------- Fin activ 3-------------
