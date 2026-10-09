@@ -8,7 +8,7 @@ if (botonPrueba !== null && mensajePrueba !== null) {
   });
 }
 
-// --- Definición de la Interface ---
+// ACTIVIDAD 1 & 2: Interface Producto
 interface Producto {
     id: number;
     nombre: string;
@@ -17,11 +17,27 @@ interface Producto {
     stock: number;
 }
 
-// --- Estado inicial (Datos de prueba previos) ---
+// ACTIVIDAD 2: Array con al menos 5 productos
 let productos: Producto[] = [
-    { id: 1, nombre: "Auriculares Bluetooth", categoria: "Electronica", precio: 49.99, stock: 15 },
-    { id: 2, nombre: "Camiseta de Algodón", categoria: "Ropa", precio: 15.00, stock: 0 }
+    { id: 1, nombre: "Teclado", categoria: "Periféricos", precio: 25000, stock: 8 },
+    { id: 2, nombre: "Mouse", categoria: "Periféricos", precio: 15000, stock: 0 },
+    { id: 3, nombre: "Monitor", categoria: "Pantallas", precio: 180000, stock: 4 },
+    { id: 4, nombre: "Auriculares", categoria: "Periféricos", precio: 35000, stock: 12 },
+    { id: 5, nombre: "Silla Gamer", categoria: "Mobiliario", precio: 210000, stock: 3 }
 ];
+
+// ACTIVIDAD 2: Agregar un nuevo producto
+const nuevoProductoActividad2: Producto = {
+    id: 6,
+    nombre: "Webcam Full HD",
+    categoria: "Periféricos",
+    precio: 45000,
+    stock: 5
+};
+
+productos.push(nuevoProductoActividad2);
+
+console.log(productos);
 
 // --- Selección de elementos del DOM ---
 const formProducto = document.getElementById('form-producto') as HTMLFormElement;
